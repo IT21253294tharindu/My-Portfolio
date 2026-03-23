@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { FolderGit2, ExternalLink, Github, X, Eye, ChevronLeft, ChevronRight } from 'lucide-react';
+import { FolderGit2, X, Eye, ChevronLeft, ChevronRight } from 'lucide-react';
 import TiltCard from './TiltCard';
 
 const projects = [
@@ -9,14 +9,14 @@ const projects = [
     type: 'Client Project',
     image: '/assets/projects/fabric/1.png',
     images: ['/assets/projects/fabric/1.png', '/assets/projects/fabric/new_2.png', '/assets/projects/fabric/3.png', '/assets/projects/fabric/4.png'],
-    description: 'Designed backend services for inventory lifecycle management including stock intake, allocation, and sales deduction workflows.',
-    tech: ['Node.js', 'Express.js', 'MongoDB', 'REST API'],
+    description: 'Designed and developed a full-stack ERP system with a React frontend and Node.js backend for inventory lifecycle management including stock intake, allocation, and sales deduction workflows.',
+    tech: ['React', 'Node.js', 'Express.js', 'MongoDB', 'REST API'],
     highlights: [
       'Developed modular RESTful APIs supporting transactional business processes.',
       'Modeled MongoDB collections for stock tracking and order lifecycle management, reducing unnecessary data duplication.',
       'Implemented business validation rules to prevent inconsistent stock updates and maintain accurate inventory levels.',
-      'Structured backend logic with controller-service separation, improving maintainability and future scalability.',
-      'Delivered a stable backend solution aligned with client operational requirements.',
+      'Structured backend logic with models, controllers, and routes architecture, improving maintainability and future scalability.',
+      'Delivered a stable full-stack solution aligned with client operational requirements.',
     ],
   },
   {
@@ -24,14 +24,14 @@ const projects = [
     type: 'Client Project',
     image: '/assets/projects/smoke/1.png',
     images: ['/assets/projects/smoke/1.png', '/assets/projects/smoke/2.png', '/assets/projects/smoke/3.png', '/assets/projects/smoke/4.png', '/assets/projects/smoke/5.png'],
-    description: 'Developed cross-platform mobile application supporting user activity tracking and smoking reduction analytics.',
+    description: 'Developed a cross-platform mobile application using Flutter, supporting user activity tracking and smoking reduction analytics with a focus on intuitive UI/UX.',
     tech: ['Flutter', 'Firebase Auth', 'Firestore', 'OAuth 2.0'],
     highlights: [
+      'Designed and implemented responsive mobile UI components using Flutter for a seamless user experience.',
       'Designed structured Firestore data models for user progress tracking.',
       'Implemented secure authentication using Firebase Authentication with Google Sign-In (OAuth 2.0 flow).',
       'Managed real-time data updates and user-specific state management.',
       'Implemented backend-driven data validation and structured query handling within Firebase services.',
-      'Delivered a fully functional backend-integrated mobile solution through direct client collaboration.',
     ],
   },
   {
@@ -39,14 +39,14 @@ const projects = [
     type: 'Academic & Personal Project',
     image: '/assets/projects/ai/1.png',
     images: ['/assets/projects/ai/1.png', '/assets/projects/ai/2.png', '/assets/projects/ai/3.png', '/assets/projects/ai/4.png'],
-    description: 'Designed and trained supervised ML models including Multinomial Naïve Bayes, Random Forest, SVM, and Decision Tree for sentiment classification.',
-    tech: ['Python', 'FastAPI', 'Node.js', 'Scikit-learn', 'Machine Learning'],
+    description: 'Designed and developed an AI-driven sentiment classification system with a React frontend, leveraging supervised ML models include Naïve Bayes and SVM.',
+    tech: ['React', 'Python', 'FastAPI', 'Node.js', 'Scikit-learn', 'Machine Learning'],
     highlights: [
+      'Developed a responsive React frontend for real-time sentiment analysis and data visualization.',
       'Performed text preprocessing and TF-IDF feature extraction to improve model accuracy.',
       'Evaluated models using precision, recall, F1-score, and accuracy metrics and selected optimal model for deployment.',
       'Developed a FastAPI-based inference service to expose trained ML models via REST APIs.',
       'Integrated ML services with Node.js backend for real-time feedback processing.',
-      'Implemented structured request validation and error handling for reliable API communication.',
     ],
   },
 ];
@@ -109,7 +109,6 @@ export default function Projects() {
                       >
                         <Eye size={20} />
                       </button>
-                      <a href="#" onClick={(e) => e.stopPropagation()} className="hover:text-white transition-colors p-1"><Github size={20} /></a>
                     </div>
                   </div>
 
@@ -222,29 +221,49 @@ export default function Projects() {
                     </>
                   )}
                 </div>
-                <div className="w-full lg:w-[400px] xl:w-[450px] shrink-0 p-8 flex flex-col overflow-y-auto bg-zinc-900/50 border-l border-white/5">
-                  <div className="text-emerald-400 font-mono text-sm mb-2">{selectedProject.type}</div>
-                  <h3 className="text-2xl font-bold text-white mb-4">{selectedProject.title}</h3>
-                  <p className="text-zinc-400 text-sm mb-6 leading-relaxed">
-                    {selectedProject.description}
-                  </p>
+                <div className="w-full lg:w-[400px] xl:w-[450px] shrink-0 p-8 lg:p-12 flex flex-col overflow-y-auto bg-zinc-900/50 border-l border-white/5 custom-scrollbar">
+                  <div className="my-auto py-4">
+                    <div className="inline-flex items-center px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-mono text-[10px] mb-4">
+                      {selectedProject.type}
+                    </div>
+                    <h3 className="text-3xl font-bold text-white mb-6 tracking-tight leading-tight">
+                      {selectedProject.title}
+                    </h3>
+                    
+                    <div className="space-y-8">
+                      <section>
+                        <p className="text-zinc-400 text-sm leading-relaxed">
+                          {selectedProject.description}
+                        </p>
+                      </section>
 
-                  <div className="flex flex-wrap gap-2 mb-8">
-                    {selectedProject.tech.map((tech, i) => (
-                      <span key={i} className="px-2 py-1 rounded-md bg-zinc-800 text-[10px] font-mono text-zinc-400 border border-zinc-700">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
+                      <section>
+                        <h4 className="text-[11px] font-bold text-zinc-500 uppercase tracking-widest mb-4">
+                          Tech Stack
+                        </h4>
+                        <div className="flex flex-wrap gap-2">
+                          {selectedProject.tech.map((tech, i) => (
+                            <span key={i} className="px-2.5 py-1.5 rounded-lg bg-zinc-800/80 text-[10px] font-mono text-zinc-300 border border-zinc-700/50 group-hover:border-emerald-500/30 transition-colors">
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </section>
 
-                  <div className="flex gap-4 mt-auto">
-                    <a
-                      href="#"
-                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-white text-zinc-950 font-semibold hover:bg-zinc-200 transition-colors text-sm w-full"
-                    >
-                      <Github size={16} />
-                      Code
-                    </a>
+                      <section>
+                        <h4 className="text-[11px] font-bold text-zinc-500 uppercase tracking-widest mb-4 flex items-center gap-2">
+                          Key Highlights
+                        </h4>
+                        <ul className="space-y-4">
+                          {selectedProject.highlights.map((highlight, i) => (
+                            <li key={i} className="text-sm text-zinc-400 flex items-start gap-3">
+                              <span className="text-emerald-500/70 mt-1 shrink-0">▹</span>
+                              <span className="leading-relaxed">{highlight}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </section>
+                    </div>
                   </div>
                 </div>
               </div>

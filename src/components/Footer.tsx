@@ -88,7 +88,9 @@ export default function Footer() {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <MagneticButton
-              href="mailto:tharindunavi1@gmail.com"
+              href="https://wa.me/94760457872?text=Hello%2c%20I'm%20interested%20in%20discussing%20a%20project%20with%20you!"
+              target="_blank"
+              rel="noreferrer"
               className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-zinc-950 rounded-full font-semibold text-lg overflow-hidden transition-transform hover:scale-105"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -153,11 +155,13 @@ export default function Footer() {
                   tharindunavi1@gmail.com
                 </a>
               </li>
-              <li className="text-zinc-400 flex items-center gap-3 group cursor-default">
-                <div className="p-2 rounded-lg bg-zinc-900 border border-zinc-800 group-hover:border-emerald-500/50 group-hover:bg-emerald-500/10 transition-colors">
-                  <Phone size={16} />
-                </div>
-                +94 760457872
+              <li>
+                <a href="https://wa.me/94760457872" target="_blank" rel="noreferrer" className="text-zinc-400 hover:text-emerald-400 transition-colors flex items-center gap-3 group">
+                  <div className="p-2 rounded-lg bg-zinc-900 border border-zinc-800 group-hover:border-emerald-500/50 group-hover:bg-emerald-500/10 transition-colors">
+                    <Phone size={16} />
+                  </div>
+                  +94 760457872
+                </a>
               </li>
               <li className="text-zinc-400 flex items-center gap-3 group cursor-default">
                 <div className="p-2 rounded-lg bg-zinc-900 border border-zinc-800 group-hover:border-emerald-500/50 group-hover:bg-emerald-500/10 transition-colors">
