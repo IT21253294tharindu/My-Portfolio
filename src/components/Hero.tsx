@@ -110,7 +110,7 @@ export default function Hero() {
           className="flex flex-wrap items-center justify-center gap-4 mb-12"
         >
           <MagneticButton
-            href="https://drive.google.com/file/d/14XlGbXcmt_taOQKtFkganD7cXqkezyjr/view?usp=sharing"
+            href="https://drive.google.com/file/d/1Ju6kq3SakO8RxDGlEQ6GIDuYySzA8BtL/view?usp=sharing"
             target="_blank"
             rel="noreferrer"
             className="flex items-center gap-2 px-6 py-3 rounded-xl bg-white text-zinc-950 font-semibold hover:bg-zinc-200 transition-colors"
